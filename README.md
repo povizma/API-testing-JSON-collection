@@ -1,4 +1,4 @@
-# API Testing Assignment — JSONPlaceholder
+# API Testing Assignment (JSONPlaceholder)
 
 Functional API validation with **Postman** and basic performance/load testing with **Apache JMeter**, using the free [JSONPlaceholder](https://jsonplaceholder.typicode.com/) REST API.
 
