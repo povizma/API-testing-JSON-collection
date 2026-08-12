@@ -53,7 +53,7 @@ Configuration:
    - Error %
 6. Take a screenshot of the Summary Report and View Results Tree for submission.
 
-## Suggested GitHub structure
+GitHub file structure
 assignment-4-api-testing/
 ├── JSONPlaceholder_API_Testing.postman_collection.json
 ├── JSONPlaceholder.postman_environment.json
@@ -65,5 +65,3 @@ assignment-4-api-testing/
     ├── jmeter_summary.png
     └── jmeter_results_tree.png
 
-## Important
-The JMeter result values must come from your own run. Do not manually enter or invent response-time, throughput, or error-rate values.
