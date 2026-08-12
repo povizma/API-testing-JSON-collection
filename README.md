@@ -1,71 +1,69 @@
-# API Testing Assignment (JSONPlaceholder)
+# Assignment No. 4 – API Testing
 
-Functional API validation with **Postman** and basic performance/load testing with **Apache JMeter**, using the free [JSONPlaceholder](https://jsonplaceholder.typicode.com/) REST API.
+## Project
+API testing of JSONPlaceholder using Postman for functional testing and Apache JMeter for basic load testing.
 
-## Overview
-
-This project tests the JSONPlaceholder REST API using two tools:
-- **Postman** — functional testing of GET, POST, PUT and DELETE requests with automated test scripts.
-- **Apache JMeter** — a basic load test simulating multiple users hitting the API at once.
-
-## Contents
-
-| File | Purpose |
-|------|---------|
-| `JSONPlaceholder_API_Testing.postman_collection.json` | Postman collection with all 5 requests and automated tests |
-| `JSONPlaceholder.postman_environment.json` | Postman environment holding the `base_url` variable |
-| `JSONPlaceholder_Load_Test.jmx` | JMeter test plan (10 users, 5s ramp-up, 5 loops) |
-| `screenshots/` | Postman and JMeter result screenshots |
-| `README.md` | This file |
-
-## API Endpoints Tested
-
-Base URL: `https://jsonplaceholder.typicode.com`
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/posts` | Retrieve all posts (100 items) |
-| GET | `/posts/1` | Retrieve a single post |
-| POST | `/posts` | Create a new post |
-| PUT | `/posts/1` | Update an existing post |
-| DELETE | `/posts/1` | Delete a post |
-
-## How to Run the Postman Tests
-
-1. Install [Postman](https://www.postman.com/downloads/).
-2. Click **Import** and add both `JSONPlaceholder_API_Testing.postman_collection.json` and `JSONPlaceholder.postman_environment.json`.
-3. In the top-right dropdown, select the **JSONPlaceholder** environment.
-4. Open any request and click **Send**, or use the **Collection Runner** to run all 5 requests at once.
-5. Check the **Test Results** tab to see the automated tests pass.
-
-Each request includes automated tests for:
-- Status code validation
-- Response time validation (under 2000 ms)
-- Response structure validation
-- Field and value validation (`id`, `title`, `body`, `userId`)
-
-**Result:** 21 out of 21 tests passed with 0 failures.
-
-## How to Run the JMeter Load Test
-
-1. Install [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi) (requires Java).
-2. Launch JMeter and open `JSONPlaceholder_Load_Test.jmx` via **File → Open**.
-3. Click the green **Start** button to run the test.
-4. View results in the **Summary Report** and **View Results Tree** listeners.
-
-Test configuration:
-- Number of Threads (users): **10**
-- Ramp-Up Period: **5 seconds**
-- Loop Count: **5**
-
-**Results:** 100 samples, average response time 91 ms, throughput 1.7/sec, error rate 0.00%.
-
-## Screenshots
-
-Screenshots of both the Postman test results and the JMeter results are available in the `screenshots/` folder.
-
-## Tools Used
-
+## Tools
 - Postman
 - Apache JMeter
-- JSONPlaceholder (test API)
+- JSONPlaceholder REST API
+
+## Postman Collection
+The collection contains:
+1. GET - All Posts
+2. GET - Single Post
+3. POST - Create Post
+4. PUT - Update Post
+5. DELETE - Delete Post
+
+### Automated validations
+The Postman tests validate:
+- HTTP status codes
+- Response time (< 2000 ms)
+- Response structure
+- Required fields: id, title, body, userId
+- Expected values for GET/POST/PUT requests
+
+### How to run
+1. Import `JSONPlaceholder_API_Testing.postman_collection.json` into Postman.
+2. Import `JSONPlaceholder.postman_environment.json` if you want to use the environment.
+3. Select the environment if imported.
+4. Open the collection and run all requests.
+5. Open the Postman Test Results/Test Results area and take screenshots showing passed tests.
+6. Export the collection again if your instructor requires the exported collection from your own Postman workspace.
+
+## JMeter Load Test
+Configuration:
+- Threads/Users: 10
+- Ramp-Up Period: 5 seconds
+- Loop Count: 5
+- Total requests: 50
+- Endpoint: GET https://jsonplaceholder.typicode.com/posts/1
+- Listeners: View Results Tree and Summary Report
+
+### How to run
+1. Install Apache JMeter.
+2. Open `JSONPlaceholder_Load_Test.jmx`.
+3. Run the test using the green Start button.
+4. Open Summary Report.
+5. Record:
+   - Average response time
+   - Min/Max response time
+   - Throughput
+   - Error %
+6. Take a screenshot of the Summary Report and View Results Tree for submission.
+
+## Suggested GitHub structure
+assignment-4-api-testing/
+├── JSONPlaceholder_API_Testing.postman_collection.json
+├── JSONPlaceholder.postman_environment.json
+├── JSONPlaceholder_Load_Test.jmx
+├── README.md
+└── screenshots/
+    ├── postman_get_tests.png
+    ├── postman_post_put_delete.png
+    ├── jmeter_summary.png
+    └── jmeter_results_tree.png
+
+## Important
+The JMeter result values must come from your own run. Do not manually enter or invent response-time, throughput, or error-rate values.
